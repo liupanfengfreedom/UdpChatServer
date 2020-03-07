@@ -49,6 +49,11 @@ namespace ChatServer
                 mchannelmanager.DestoryChannel(mchannelid);
                 aTimer.Close();
             }
+
+            FDataPackage mp = new FDataPackage("");
+            mp.MT = DataType.PING;
+            String str = JsonConvert.SerializeObject(mp);
+            sendreliable(ref str);
         }
         void unreliabledatareceivedcallback(ref byte[] buffer, ref String str)
         {
