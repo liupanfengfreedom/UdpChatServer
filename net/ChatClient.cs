@@ -18,6 +18,7 @@ namespace ChatServer
         public String localplayerguid { private set; get; }
         public bool islocalplayer { private set; get; }
         List<ChatClient> proxyclients_list;
+        ChatClient localplayer;
         private  System.Timers.Timer aTimer;
         private const Int16 LIFEVALUE = 3;
         private Int16 lifetime = LIFEVALUE;
@@ -42,12 +43,17 @@ namespace ChatServer
             if (lifetime-- <= 0)
             {
                 if (islocalplayer)
-                { 
-                   room.Remove(this);
-                   mchannelmanager.mudpclient.mudpserver.removeclient(mchannelmanager.mudpclient.mremoteEP);//remove thisUdpChannelManager
+                {
+                    room.Remove(this);
+                    mchannelmanager.mudpclient.mudpserver.removeclient(mchannelmanager.mudpclient.mremoteEP);//remove thisUdpChannelManager
+                }
+                else
+                {
+                    localplayer.proxyclients_list.Remove(this);
                 }
                 mchannelmanager.DestoryChannel(mchannelid);
                 aTimer.Close();
+                Console.WriteLine("mchannelmanager.DestoryChannel"+ mchannelid);
             }
 
             FDataPackage mp = new FDataPackage("");
@@ -93,6 +99,7 @@ namespace ChatServer
                             Console.WriteLine("ORDERPROXYREPORT  localplayerguid:" + people.localplayerguid);
                         }
 
+                        lifetime = LIFEVALUE;
                         break;
                     case DataType.PROXYREPORT:
                         islocalplayer = false;
@@ -104,6 +111,8 @@ namespace ChatServer
                         room = Room<ChatClient>.getroomfromroommap(roomid);
                         ChatClient localcc = room.findmemberfromroom((ChatClient cc) => { return cc.localplayerguid == proxyguid; });
                         localcc.proxyclients_list.Add(this);
+                        localplayer = localcc;
+                        lifetime = LIFEVALUE;
                         break;
                     case DataType.PING:
                         lifetime = LIFEVALUE;

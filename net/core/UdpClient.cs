@@ -103,7 +103,7 @@ namespace ChatServer
                         else if (normal_ackbyte == ACKSIGN)
                         {
                             receiveackid = buffer[headersize + 2];
-                            Console.WriteLine("receiveackid"+ receiveackid);
+                            //Console.WriteLine("receiveackid"+ receiveackid);
                         }
                     }
                     else if (un_reliablebyte == RELIABLESIGN)
