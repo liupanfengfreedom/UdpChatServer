@@ -13,9 +13,7 @@ UdpChatClient::~UdpChatClient()
 }
 void UdpChatClient::unreliabledatareceivedcallback(const TArray<uint8>& buffer, const FString& str)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, str);
-	GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, FString::FromInt(buffer.Num()));
-
+	onunreliablebytestreamreceived.ExecuteIfBound(buffer);
 }
 void UdpChatClient::reliabledatareceivedcallback(const TArray<uint8>&, const FString& str)
 {
@@ -28,6 +26,10 @@ void UdpChatClient::reliabledatareceivedcallback(const TArray<uint8>&, const FSt
 		//FString left, right;
 		//mp.PayLoad.Split("?", &left, &right);
 		Onorderproxytoreportdelegate.ExecuteIfBound(mp.PayLoad);
+	}
+	else if (mp.MT == DataType::PING)
+	{
+		ping();
 	}
 }
 void UdpChatClient::ping()

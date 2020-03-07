@@ -79,7 +79,7 @@ void UdpClient::ReceiveWork()
 			break;
 		}
 		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, TEXT("UTcpClient threadworker"));
-		FPlatformProcess::Sleep(0.03);
+		FPlatformProcess::Sleep(0.015);
 
 
 		bool b = false;

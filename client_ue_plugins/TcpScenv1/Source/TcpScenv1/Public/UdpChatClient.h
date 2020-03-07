@@ -11,6 +11,7 @@
  * 
  */
 DECLARE_DELEGATE_OneParam(FOnOrderproxytoreport, const FString &);
+DECLARE_DELEGATE_OneParam(FOnunreliablebytestreamreceived, const TArray<uint8>&);
 class TCPSCENV1_API UdpChatClient:UdpChannel
 {
 public:
@@ -18,31 +19,18 @@ public:
 	{
 		unreliabledatareceiveddelegate.BindRaw(this, &UdpChatClient::unreliabledatareceivedcallback);
 		reliabledatareceiveddelegate.BindRaw(this, &UdpChatClient::reliabledatareceivedcallback);
-
-			Async(EAsyncExecution::ThreadPool, [=]() {
-			while (true)
-			{
-				FPlatformProcess::Sleep(10);
-				if (exitthread)
-				{
-					delete this;
-
-					break;
-				}
-				ping();
-			}
-			; }, nullptr);
 	}
 	~UdpChatClient();
 private:
 	void unreliabledatareceivedcallback(const TArray<uint8>&, const FString&);
 	void reliabledatareceivedcallback(const TArray<uint8>&, const FString&);
-public:
 	void ping();
+public:
 	void localplayerjoinroom(FString &number,FString&roomid);
 	void proxyreport(const FString& localplayerguid, const FString& roomid, const FString& proxyguid);
 	void sendunreliable1(const uint8* content, const int32& size);
 	void sendunreliable1(FString& serialized);
 	FOnOrderproxytoreport Onorderproxytoreportdelegate;
+	FOnunreliablebytestreamreceived onunreliablebytestreamreceived;
 	bool exitthread = false;
 };
