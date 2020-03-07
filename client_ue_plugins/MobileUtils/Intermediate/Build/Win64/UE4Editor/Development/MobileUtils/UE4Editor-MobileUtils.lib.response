@@ -1,0 +1,14 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-MobileUtils.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\ueprojecttest\UnrealEngine-4.24\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"D:\ueprojecttest\audiov2\Plugins\MobileUtils\Intermediate\Build\Win64\UE4Editor\Development\MobileUtils\Module.MobileUtils.cpp.obj"
+"D:\ueprojecttest\audiov2\Plugins\MobileUtils\Intermediate\Build\Win64\UE4Editor\Development\MobileUtils\Module.MobileUtils.gen.cpp.obj"
+"D:\ueprojecttest\UnrealEngine-4.24\Engine\Intermediate\Build\Win64\UE4Editor\Development\Default.rc2.res"
+/OUT:"D:\ueprojecttest\audiov2\Plugins\MobileUtils\Intermediate\Build\Win64\UE4Editor\Development\MobileUtils\UE4Editor-MobileUtils.lib"
+/INCLUDE:IMPLEMENT_MODULE_MobileUtils

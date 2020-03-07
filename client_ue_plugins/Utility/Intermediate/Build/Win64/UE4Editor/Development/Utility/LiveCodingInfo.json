@@ -1,0 +1,21 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.Utility.cpp.obj": [
+			"HttpServiceRaw.cpp.obj",
+			"HttpServicev.cpp.obj",
+			"MyBlueprintFunctionLibrary.cpp.obj",
+			"TcpClient.cpp.obj",
+			"TcpClientv.cpp.obj",
+			"UdpClient.cpp.obj",
+			"Utility.cpp.obj",
+			"UdpChannelMannger.cpp.obj"
+		],
+		"Module.Utility.gen.cpp.obj": [
+			"HttpServicev.gen.cpp.obj",
+			"MyBlueprintFunctionLibrary.gen.cpp.obj",
+			"TcpClient.gen.cpp.obj",
+			"Utility.init.gen.cpp.obj"
+		]
+	}
+}

@@ -81,19 +81,7 @@ TSharedPtr<UdpChannelMannger, ESPMode::ThreadSafe> UdpChannelMannger::Getsingles
 	}
 	return _msingleston;
 }
-bool UdpChannelMannger::CreateChannel(channelidtype channelid, TSharedPtr<UdpChannel, ESPMode::ThreadSafe> & out)
-{
-	bool b = OnchannelReceivedatacallbackmap.Contains(channelid);
-	if (b)
-	{
-		return false;//channelid already exist ,I am so sorry;
-	}
-	TSharedPtr<UdpChannel, ESPMode::ThreadSafe> temp = MakeShareable(new UdpChannel(channelid));
-	temp->channelid = channelid;
-	out = temp;
-	OnchannelReceivedatacallbackmap.Add(channelid,temp);
-	return true;
-}
+
 bool UdpChannelMannger::DestoryChannel(channelidtype channelid)
 {
 	bool b = OnchannelReceivedatacallbackmap.Contains(channelid);
@@ -130,7 +118,7 @@ tryagain:
 	else
 	{
 		channelid = currentid;
-		udpchannelmanager->OnchannelReceivedatacallbackmap.Add(currentid, MakeShareable(this));
+		udpchannelmanager->OnchannelReceivedatacallbackmap.Add(currentid,this);
 	}
 	//bool bcontain = udpchannelmanager->OnchannelReceivedatacallbackmap.Contains(id);
 	//if (bcontain)

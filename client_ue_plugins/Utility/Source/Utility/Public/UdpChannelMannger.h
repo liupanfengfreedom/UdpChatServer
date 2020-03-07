@@ -32,11 +32,11 @@ class UTILITY_API UdpChannelMannger
 
 	class SuperUdpClient * superudpclient;
 	static TSharedPtr<UdpChannelMannger, ESPMode::ThreadSafe> _msingleston;
-	TMap<channelidtype, TSharedPtr<UdpChannel, ESPMode::ThreadSafe>> OnchannelReceivedatacallbackmap;
+	TMap<channelidtype, UdpChannel*> OnchannelReceivedatacallbackmap;
+	//TMap<channelidtype, TSharedPtr<UdpChannel, ESPMode::ThreadSafe>> OnchannelReceivedatacallbackmap;
 public:
 	UdpChannelMannger();
 	~UdpChannelMannger();
 	static TSharedPtr<UdpChannelMannger, ESPMode::ThreadSafe> Getsingleston();
-	bool CreateChannel(channelidtype channelid, TSharedPtr<UdpChannel, ESPMode::ThreadSafe>& out);
 	bool DestoryChannel(channelidtype channelid);
 };

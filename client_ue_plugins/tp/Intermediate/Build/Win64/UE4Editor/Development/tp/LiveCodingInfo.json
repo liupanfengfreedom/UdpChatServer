@@ -1,0 +1,15 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.tp.cpp.obj": [
+			"matchui.cpp.obj",
+			"tp.cpp.obj",
+			"TTGameInstance.cpp.obj"
+		],
+		"Module.tp.gen.cpp.obj": [
+			"matchui.gen.cpp.obj",
+			"tp.init.gen.cpp.obj",
+			"TTGameInstance.gen.cpp.obj"
+		]
+	}
+}

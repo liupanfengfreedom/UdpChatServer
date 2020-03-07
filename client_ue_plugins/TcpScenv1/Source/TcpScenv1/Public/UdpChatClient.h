@@ -32,5 +32,4 @@ public:
 	void sendunreliable1(FString& serialized);
 	FOnOrderproxytoreport Onorderproxytoreportdelegate;
 	FOnunreliablebytestreamreceived onunreliablebytestreamreceived;
-	bool exitthread = false;
 };

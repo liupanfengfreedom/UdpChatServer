@@ -1,0 +1,14 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-Utility.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\ueprojecttest\UnrealEngine-4.24\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"D:\ueprojecttest\audiov2\Plugins\Utility\Intermediate\Build\Win64\UE4Editor\Development\Utility\Module.Utility.cpp.obj"
+"D:\ueprojecttest\audiov2\Plugins\Utility\Intermediate\Build\Win64\UE4Editor\Development\Utility\Module.Utility.gen.cpp.obj"
+"D:\ueprojecttest\UnrealEngine-4.24\Engine\Intermediate\Build\Win64\UE4Editor\Development\Default.rc2.res"
+/OUT:"D:\ueprojecttest\audiov2\Plugins\Utility\Intermediate\Build\Win64\UE4Editor\Development\Utility\UE4Editor-Utility.lib"
+/INCLUDE:IMPLEMENT_MODULE_Utility

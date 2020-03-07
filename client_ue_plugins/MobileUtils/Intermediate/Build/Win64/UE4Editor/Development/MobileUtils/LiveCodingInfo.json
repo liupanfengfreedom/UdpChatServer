@@ -1,0 +1,14 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.MobileUtils.cpp.obj": [
+			"MobileUtils.cpp.obj",
+			"MobileUtilsBlueprintLibrary.cpp.obj",
+			"MobileUtilsPlatform.cpp.obj"
+		],
+		"Module.MobileUtils.gen.cpp.obj": [
+			"MobileUtils.init.gen.cpp.obj",
+			"MobileUtilsBlueprintLibrary.gen.cpp.obj"
+		]
+	}
+}
