@@ -23,7 +23,9 @@ namespace ChatServer
         }
         ~UdpChannelManager()
         {
+            Console.BackgroundColor = ConsoleColor.Red;
             Console.WriteLine("UdpChannelManager garbag collection");
+            Console.ResetColor();
         }
         public bool CreateChannel(ChannelidType channelid, out UdpChannel channel )
         {

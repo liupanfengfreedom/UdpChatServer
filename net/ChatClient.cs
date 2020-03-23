@@ -20,7 +20,7 @@ namespace ChatServer
         List<ChatClient> proxyclients_list;
         ChatClient localplayer;
         private  System.Timers.Timer aTimer;
-        private const Int16 LIFEVALUE = 3;
+        private const Int16 LIFEVALUE = 2;
         private Int16 lifetime = LIFEVALUE;
         public ChatClient(UdpChannelManager channelmanager, ChannelidType channelid) : base(channelmanager, channelid)
         {
@@ -32,7 +32,7 @@ namespace ChatServer
         private void SetTimer()
         {
             // Create a timer with a two second interval.
-            aTimer = new System.Timers.Timer(10000);
+            aTimer = new System.Timers.Timer(1000*60);
             // Hook up the Elapsed event for the timer. 
             aTimer.Elapsed += OnTimedEventremoveplayer;
             aTimer.AutoReset = true;

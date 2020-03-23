@@ -21,7 +21,7 @@ namespace ChatServer
             else
             {
                 UdpClientMap.Add(ep, new UdpChannelManager(this,ep));
-                Console.WriteLine("Add UdpServer UdpClientMap size: " + UdpClientMap.Count);
+                Console.WriteLine("Add UdpServer UdpClientMap size: " + UdpClientMap.Count+"  endpoint:"+ ep.ToString());
             }
             UdpChannelManager outudp;
             UdpClientMap.TryGetValue(ep, out outudp);
@@ -30,7 +30,7 @@ namespace ChatServer
         public void removeclient(EndPoint ep)
         {
             UdpClientMap.Remove(ep);
-            Console.WriteLine("remove UdpServer UdpClientMap size: " + UdpClientMap.Count);
+            Console.WriteLine("remove UdpServer UdpClientMap size: " + UdpClientMap.Count + "  endpoint:" + ep.ToString());
         }
         public UdpServer(IPAddress ipAd, int port)
         {
@@ -68,9 +68,9 @@ namespace ChatServer
                 }
                 catch (Exception e)
                 {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.WriteLine(e);
-                    Console.ResetColor();
+                    //Console.BackgroundColor = ConsoleColor.Red;
+                    //Console.WriteLine(e);
+                    //Console.ResetColor();
                 }
   
 
