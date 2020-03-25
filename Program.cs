@@ -18,6 +18,7 @@ namespace ChatServer
         {
             IPAddress ipAd = IPAddress.Parse(config.configinfor.ipaddress);//local ip address  "172.16.5.188"
             new UdpServer(ipAd, config.configinfor.ttcipport).startlisten();
+            Console.WriteLine("listening "+ ipAd.ToString() +":"+ config.configinfor.ttcipport.ToString());
             while (true)
             {
                 Thread.Sleep(100);
